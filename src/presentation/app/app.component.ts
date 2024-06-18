@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { GetUserByEmailUseCase } from 'src/domain/usecases/users/get-user-by-email.usecase';
-import { GetUserUseCase } from 'src/domain/usecases/users/get-user.usecase';
-import { LoginUseCase } from 'src/domain/usecases/users/login.usecase';
-import { RegisterUserUseCase } from 'src/domain/usecases/users/register-user.usecase';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +7,4 @@ import { RegisterUserUseCase } from 'src/domain/usecases/users/register-user.use
 })
 export class AppComponent {
   title = 'atom-frontend';
-
-  constructor(
-    
-  ){}
-
-  
-
 }

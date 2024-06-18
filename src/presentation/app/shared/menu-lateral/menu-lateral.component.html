@@ -1,0 +1,39 @@
+<aside id="sidebar">
+  <div class="h-100">
+    <div class="sidebar-logo">
+      <a routerLink="">
+        <i class="fa-solid fa-circle-user"></i>
+        <!-- {{usuario.rolNombre }} -->
+        Rol Usuario
+      </a>
+    </div>
+    <!-- Sidebar Navigation -->
+    <ul class="sidebar-nav">
+      <li class="sidebar-header">
+        <!-- {{usuario.nombreCompleto}} -->
+        {{ user.nombre }}
+      </li>
+      <li class="sidebar-header">
+        <a role="button" (click)="logOut()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Salir
+        </a>
+      </li>
+      <li class="sidebar-item">
+        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" [attr.data-bs-target]="'#tareas'"
+          aria-expanded="false" [attr.aria-controls]="'tareas'">
+          <i class="task"></i>
+          Tareas
+        </a>
+        <ul id="tareas" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+          <li class="sidebar-item">
+            <a [routerLink]="'tareas'" class="sidebar-sub-link">
+              <i class="task"></i>
+              Mantenimiento
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</aside>

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+
+*,::after,::before{
+  box-sizing: border-box;
+}
+
+#bodyContent{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background-image: url(../../../assets/images/149280077_7711fe50-a630-44ef-9ad7-19b3720e3786.jpg);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+}
+
+/* Layout skeletor */
+.wrapper{
+  align-items: stretch;
+  display: flex;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+}
+
+.content{
+  flex: 1;
+  max-width: 100vw;
+  width: 100vw;
+}
+
+main{
+  overflow-y: auto;
+  max-height: 850px;
+}
+
+.menu-lateral{
+  background-image: linear-gradient(to right bottom, #fe8d17, #ff9a12, #ffa70e, #ffb40e, #ffc112);
+}
+
+.btn-warning{
+  --bs-btn-color: #000;
+  --bs-btn-bg: #FE8D17;
+  --bs-btn-border-color: #FE8D17;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #ffa70e;
+  --bs-btn-hover-border-color: #FFC112;
+  --bs-btn-focus-shadow-rgb: 217, 164, 6;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #ffa70e;
+  --bs-btn-active-border-color: #FFC112;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: #FE8D17;
+  --bs-btn-disabled-border-color: #FE8D17;
+}
+
+/* Responsive */
+
+@media(min-width:768px){
+  .content {
+      width: auto;
+  }
+}
+
+@media (max-width: 576px) and (min-width: 0) { 
+  .content {
+      width: auto;
+  }
+
+  main{
+    overflow-y: auto;
+    max-height: 750px;
+  }
+ }

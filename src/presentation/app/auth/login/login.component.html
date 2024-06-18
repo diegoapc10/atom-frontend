@@ -1,0 +1,48 @@
+<div class="bodyLogin">
+    <section>
+        <form [formGroup]="loginForm">
+            <div class="container text-center">
+                <div class="row justify-content-center mb-3 mt-3">
+                    <div class="logo">
+                        <img alt="Logo">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="mb-3">
+                        <h5>Login</h5>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text icono"><i class="fa-solid fa-user"></i></span>
+                        <input formControlName="email" type="text" class="form-control" placeholder="Email">
+                    </div>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-warning">
+                        <div *ngIf="email.errors?.['required']">
+                            <strong>El email es obligatorio</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text icono"><i class="fa-solid fa-key"></i></span>
+                        <input formControlName="clave" type="password" class="form-control" placeholder="Password"
+                            [autocomplete]="false">
+                    </div>
+                    <div *ngIf="clave.invalid && (clave.dirty || clave.touched)" class="text-warning">
+                        <div *ngIf="clave.errors?.['required']">
+                            <strong>El password es obligatoria</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-3">
+                    <div class="input-group mb-3">
+                        <button [disabled]="!loginForm.valid" class="btn mt-3" (click)="login()">Ingresar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+<!-- <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-clip-rotate-multiple" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner> -->
