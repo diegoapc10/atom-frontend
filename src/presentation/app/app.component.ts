@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { UserLoginUseCase } from 'src/domain/usecases/users/user-login.usecase';
+import { GetUserByEmailUseCase } from 'src/domain/usecases/users/get-user-by-email.usecase';
+import { GetUserUseCase } from 'src/domain/usecases/users/get-user.usecase';
+import { LoginUseCase } from 'src/domain/usecases/users/login.usecase';
+import { RegisterUserUseCase } from 'src/domain/usecases/users/register-user.usecase';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +12,10 @@ import { UserLoginUseCase } from 'src/domain/usecases/users/user-login.usecase';
 export class AppComponent {
   title = 'atom-frontend';
 
-  constructor(private loginUseCase: UserLoginUseCase){}
+  constructor(
+    
+  ){}
 
-  login(){
-    this.loginUseCase.execute({ correo: 'diegoapc10.dp@gmail.com', password: '123456' })
-    .subscribe(res => {
-      console.log(res);
-    }, err => {
-      console.log(err);
-    })
-  }
+  
+
 }
