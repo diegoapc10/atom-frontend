@@ -16,7 +16,7 @@ export class TareaFormComponent {
    }
    
    taskForm = this.formBuilder.group({
-    id: [this.data.nuevo ? '' : this.data.task.id,[Validators.required]],
+    id: [this.data.nuevo ? '' : this.data.task.id],
     titulo: [this.data.nuevo ? '' : this.data.task.titulo,[Validators.required]],
     descripcion: [this.data.nuevo ? '' : this.data.task.descripcion,[Validators.required]],
     estado: [this.data.nuevo ? false : this.data.task.estado,[Validators.required]]
@@ -32,7 +32,6 @@ export class TareaFormComponent {
 
    onChangeRadioButtom(event: any){
     this.data.task.estado = event.value;
-    this.taskForm.controls.estado.setValue(event.value);
    }
 
    get titulo(){
