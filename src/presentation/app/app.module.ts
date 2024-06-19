@@ -12,6 +12,7 @@ import { MenuLateralComponent } from './shared/menu-lateral/menu-lateral.compone
 import { InicioComponent } from './shared/inicio/inicio.component';
 import {MatButtonModule} from '@angular/material/button';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import { LoginUseCase } from 'src/domain/usecases/users/login.usecase';
 import { UserSesionService } from '../../services/user-sesion/user-sesion.service';
 import { validateResponse } from '../../helper/validations-general';
 import { SpinnerService } from '../../services/spinner/spinner.service';
+import { SweetAlert2Service } from '../../services/sweet-alert-2/sweet-alert-2.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent {
     private loginUseCase: LoginUseCase,
     private userSesionService: UserSesionService,
     private router: Router,
-    private spinnerService: SpinnerService
+    private spinnerService: SpinnerService,
+    private sweetAlert2Service: SweetAlert2Service
   ){}
 
   loginForm = this.formBuilder.group({
@@ -49,6 +51,7 @@ export class LoginComponent {
       error: (err: any) => {
         this.spinnerService.finalizarAnimacion();
         console.log(err);
+        this.sweetAlert2Service.mostrarMensajeError(err.msg);
       }
     })
   }

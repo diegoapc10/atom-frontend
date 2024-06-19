@@ -42,6 +42,9 @@ export class TareaTableComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if(result == '')
+        return;
+
       if(!result.nuevo)
         this.editTask(result.task)
     });
@@ -52,8 +55,11 @@ export class TareaTableComponent {
     this.editTaskUseCase.execute({ task: task, token: this.userSesionService.getToken() as string })
     .subscribe({
       next: (res: ResponseEditTasksModel) => {
-        if(res.status)
+        if(res.status){
+          this.spinnerService.finalizarAnimacion();
+          this.sweetAlert2Service.mostrarMensajeSuccess('La tarea se modificó correctamente');
           this.taskEdited.emit(true);
+        }
       },
       error: (err: any) => {
         this.spinnerService.finalizarAnimacion();
@@ -74,6 +80,7 @@ export class TareaTableComponent {
         next: (res: ResponseDeleteTasksModel) => {
           if(res.status){
             this.spinnerService.finalizarAnimacion();
+            this.sweetAlert2Service.mostrarMensajeSuccess('La tarea se eliminó correctamente');
             this.taskEdited.emit(true);
           }
         },

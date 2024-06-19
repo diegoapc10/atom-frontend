@@ -10,6 +10,7 @@ import { TareaFormComponent } from '../tarea-form/tarea-form.component';
 import { CreateTaskUseCase } from 'src/domain/usecases/tasks/create-task.usecase';
 import { ResponseCreateTasksModel } from 'src/domain/models/response-create-task.model';
 import { SpinnerService } from '../../services/spinner/spinner.service';
+import { SweetAlert2Service } from '../../services/sweet-alert-2/sweet-alert-2.service';
 
 @Component({
   selector: 'app-principal',
@@ -26,7 +27,8 @@ export class PrincipalComponent {
     private userSesionService: UserSesionService,
     private getTasksUseCase: GetTasksUseCase,
     private createTaskUseCase: CreateTaskUseCase,
-    private spinnerService: SpinnerService
+    private spinnerService: SpinnerService,
+    private sweetAlert2Service: SweetAlert2Service
   ){}
 
   ngOnInit(){
@@ -47,6 +49,7 @@ export class PrincipalComponent {
       error: (err: any) => {
         this.spinnerService.finalizarAnimacion();
         console.log(err);
+        this.sweetAlert2Service.mostrarMensajeError(err.msg);
       }
     })
   }
@@ -83,12 +86,14 @@ export class PrincipalComponent {
       next: (res: ResponseCreateTasksModel) => {
         if(res.status){
           this.spinnerService.finalizarAnimacion();
+          this.sweetAlert2Service.mostrarMensajeSuccess('La tarea se registro correctamente');
           this.getTasks(this.user.id);
         }
       },
       error: (err: any) => {
         this.spinnerService.finalizarAnimacion();
         console.log(err);
+        this.sweetAlert2Service.mostrarMensajeError(err.msg);
       }
     });
   }

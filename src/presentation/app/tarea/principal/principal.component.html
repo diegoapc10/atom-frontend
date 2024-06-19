@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="card border-dark">
+    <!-- <div class="card border-dark">
         <div class="card-header">
             <strong>Tareas</strong>
         </div>
@@ -13,5 +13,21 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Tareas</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <app-tarea-table (taskEdited)="refreshTask($event)" [tasks]="tasks"></app-tarea-table>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="row">
+                <div class="col-1">
+                    <button class="btn btn-success" (click)="openForm()">Nuevo</button>
+                </div>
+            </div>
+        </mat-card-actions>
+    </mat-card>
 </div>
