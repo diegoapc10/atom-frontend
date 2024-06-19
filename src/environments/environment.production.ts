@@ -1,5 +1,5 @@
 export const environment = {
-    AuthApi: 'http://localhost:8000/api/auth',
-    UsersApi: 'http://localhost:8000/api/users',
-    TasksApi: 'http://localhost:8000/api/tasks'
+    AuthApi: 'https://atom-backend-2swc.onrender.com/api/auth',
+    UsersApi: 'https://atom-backend-2swc.onrender.com/api/users',
+    TasksApi: 'https://atom-backend-2swc.onrender.com/api/tasks'
 };
