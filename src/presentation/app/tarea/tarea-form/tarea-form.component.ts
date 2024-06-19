@@ -23,12 +23,10 @@ export class TareaFormComponent {
    
    onBlurTitulo(event: any){
     this.data.task.titulo = event.target.value;
-    this.data.task.fecha = new Date();
    }
 
    onBlurDescripcion(event: any){
     this.data.task.descripcion = event.target.value;
-    this.data.task.fecha = new Date();
    }
 
    get titulo(){
