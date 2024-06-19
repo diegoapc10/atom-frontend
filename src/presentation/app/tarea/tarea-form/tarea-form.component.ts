@@ -32,6 +32,7 @@ export class TareaFormComponent {
 
    onChangeRadioButtom(event: any){
     this.data.task.estado = event.value;
+    this.taskForm.controls.estado.setValue(event.value);
    }
 
    get titulo(){
