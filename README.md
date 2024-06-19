@@ -21,3 +21,11 @@ Realizado con Angular 16.
 
 - Se uso una arquitectura limpia y orientada al `Domain`, usando algunos patrones como repositorios, gestionados
   muy bien por la capa `data` para una mayor flexibilidad y adaptacion a los cambios.
+
+## NOMENCLATURAS
+- Kebab Case
+  * Para el nombre de los archivos
+- Camel Case
+  * Para nombrar variables, metodos y funciones
+- Pascal Case
+  * Para nombrar clases, interfaces.
