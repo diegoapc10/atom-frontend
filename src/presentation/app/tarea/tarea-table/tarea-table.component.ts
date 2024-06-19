@@ -22,7 +22,7 @@ export class TareaTableComponent {
 
   @Output('taskEdited')taskEdited = new EventEmitter<boolean>();
   @Input() tasks: TaskModel[] = [];
-  tableHeader: string[] = ['titulo','descripcion','fecha','acciones'];
+  tableHeader: string[] = ['titulo','descripcion','fecha','estado','acciones'];
 
   constructor(
     private userSesionService: UserSesionService,

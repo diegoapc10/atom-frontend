@@ -18,7 +18,8 @@ export class TareaFormComponent {
    taskForm = this.formBuilder.group({
     id: [this.data.nuevo ? '' : this.data.task.id,[Validators.required]],
     titulo: [this.data.nuevo ? '' : this.data.task.titulo,[Validators.required]],
-    descripcion: [this.data.nuevo ? '' : this.data.task.descripcion,[Validators.required]]
+    descripcion: [this.data.nuevo ? '' : this.data.task.descripcion,[Validators.required]],
+    estado: [this.data.nuevo ? false : this.data.task.estado,[Validators.required]]
    });
    
    onBlurTitulo(event: any){
@@ -27,6 +28,10 @@ export class TareaFormComponent {
 
    onBlurDescripcion(event: any){
     this.data.task.descripcion = event.target.value;
+   }
+
+   onChangeRadioButtom(event: any){
+    this.data.task.estado = event.value;
    }
 
    get titulo(){

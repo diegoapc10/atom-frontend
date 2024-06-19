@@ -29,7 +29,8 @@ export class TaskImplementationRepository extends TaskRepository {
         let headers = { 'Authorization': `Bearer ${params.token}` };
         const modifiedTask = {
             titulo: params.task.titulo,
-            descripcion: params.task.descripcion
+            descripcion: params.task.descripcion,
+            estado: params.task.estado
         }
         return this.http.put<ResponseEditTasksModel>(`${this.urlTaskApi}/${params.task.id}`, modifiedTask, { headers: headers });
     }

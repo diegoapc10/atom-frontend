@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserModel } from 'src/domain/models/user.model';
 import { UserSesionService } from '../../services/user-sesion/user-sesion.service';
 import { Router } from '@angular/router';
+import { SpinnerService } from '../../services/spinner/spinner.service';
 
 @Component({
   selector: 'app-menu-lateral',
@@ -14,7 +15,8 @@ export class MenuLateralComponent {
 
   constructor(
     private userSesionService: UserSesionService,
-    private _router: Router
+    private _router: Router,
+    private spinnerService: SpinnerService
     ){}
 
     ngOnInit(){
@@ -22,7 +24,9 @@ export class MenuLateralComponent {
     }
 
     logOut(){
+      this.spinnerService.iniciarAnimacion();
       this.userSesionService.removeDataStorage();
+      this.spinnerService.finalizarAnimacion();
       this._router.navigateByUrl('login');
     }
 }

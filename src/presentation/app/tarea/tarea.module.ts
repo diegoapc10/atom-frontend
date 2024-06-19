@@ -15,7 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -36,7 +36,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    MatRadioModule
   ]
 })
 export class TareaModule { }
