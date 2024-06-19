@@ -7,6 +7,12 @@ import { UserImplementationRepository } from "./repositories/user/user-implement
 import { RegisterUserUseCase } from "src/domain/usecases/users/register-user.usecase";
 import { GetUserUseCase } from "src/domain/usecases/users/get-user.usecase";
 import { GetUserByEmailUseCase } from "src/domain/usecases/users/get-user-by-email.usecase";
+import { TaskRepository } from "src/domain/repositories/task.repository";
+import { GetTasksUseCase } from "src/domain/usecases/tasks/get-tasks.usecase";
+import { TaskImplementationRepository } from "./repositories/task/task-implementation.repository";
+import { EditTaskUseCase } from "src/domain/usecases/tasks/edit-task.usecase";
+import { CreateTaskUseCase } from "src/domain/usecases/tasks/create-task.usecase";
+import { DeleteTaskUseCase } from "src/domain/usecases/tasks/delete-task-usecase";
 
 
 const loginUseCaseFactory = (userRepo: UserRepository) => new LoginUseCase(userRepo);
@@ -37,6 +43,34 @@ export const getUserByEmailUseCaseProvider = {
     deps: [UserRepository]
 }
 
+const getTasksUseCaseFactory = (taskRepo: TaskRepository) => new GetTasksUseCase(taskRepo);
+export const getTasksUseCaseProvider = {
+    provide: GetTasksUseCase,
+    useFactory: getTasksUseCaseFactory,
+    deps: [TaskRepository]
+}
+
+const editTaskUseCaseFactory = (taskRepo: TaskRepository) => new EditTaskUseCase(taskRepo);
+export const editTaskUseCaseProvider = {
+    provide: EditTaskUseCase,
+    useFactory: editTaskUseCaseFactory,
+    deps: [TaskRepository]
+}
+
+const createTaskUseCaseFactory = (taskRepo: TaskRepository) => new CreateTaskUseCase(taskRepo);
+export const createTaskUseCaseProvider = {
+    provide: CreateTaskUseCase,
+    useFactory: createTaskUseCaseFactory,
+    deps: [TaskRepository]
+}
+
+const deleteTaskUseCaseFactory = (taskRepo: TaskRepository) => new DeleteTaskUseCase(taskRepo);
+export const deleteTaskUseCaseProvider = {
+    provide: DeleteTaskUseCase,
+    useFactory: deleteTaskUseCaseFactory,
+    deps: [TaskRepository]
+}
+
 @NgModule({
     providers: [
         loginUseCaseProvider,
@@ -46,6 +80,14 @@ export const getUserByEmailUseCaseProvider = {
         {
             provide: UserRepository,
             useClass: UserImplementationRepository
+        },
+        getTasksUseCaseProvider,
+        editTaskUseCaseProvider,
+        createTaskUseCaseProvider,
+        deleteTaskUseCaseProvider,
+        {
+            provide: TaskRepository,
+            useClass: TaskImplementationRepository
         }
     ],
     imports: [

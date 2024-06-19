@@ -1,0 +1,30 @@
+<h2 mat-dialog-title *ngIf="data.nuevo">Nueva Tarea</h2>
+<h2 mat-dialog-title *ngIf="!data.nuevo">Editar Tarea</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="taskForm" >
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Titulo</mat-label>
+        <input matInput type="text" formControlName="titulo" (blur)="onBlurTitulo($event)">
+          <button *ngIf="titulo" matSuffix mat-icon-button aria-label="Clear">
+            <mat-icon>close</mat-icon>
+          </button>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Descripcion</mat-label>
+        <textarea matInput formControlName="descripcion" (blur)="onBlurDescripcion($event)"></textarea>
+        <button *ngIf="descripcion" matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Grabar</button>
+</mat-dialog-actions>

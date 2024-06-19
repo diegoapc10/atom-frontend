@@ -38,4 +38,8 @@ export class UserSesionService {
     Cookies.remove('user_token');
     localStorage.clear();
   }
+
+  getToken(){
+    return Cookies.get('user_token');
+  }
 }

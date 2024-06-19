@@ -4,7 +4,14 @@
             <strong>Tareas</strong>
         </div>
         <div class="card-body">
-            
+            <app-tarea-table (taskEdited)="refreshTask($event)" [tasks]="tasks"></app-tarea-table>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-1">
+                    <button class="btn btn-success" (click)="openForm()">Nuevo</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

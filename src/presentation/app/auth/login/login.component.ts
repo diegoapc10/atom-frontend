@@ -5,6 +5,7 @@ import { ResponseLoginModel } from 'src/domain/models/response-login.model';
 import { LoginUseCase } from 'src/domain/usecases/users/login.usecase';
 import { UserSesionService } from '../../services/user-sesion/user-sesion.service';
 import { validateResponse } from '../../helper/validations-general';
+import { SpinnerService } from '../../services/spinner/spinner.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     private loginUseCase: LoginUseCase,
     private userSesionService: UserSesionService,
-    private router: Router
+    private router: Router,
+    private spinnerService: SpinnerService
   ){}
 
   loginForm = this.formBuilder.group({
@@ -34,17 +36,18 @@ export class LoginComponent {
   }
 
   login(){
+    this.spinnerService.iniciarAnimacion();
     this.loginUseCase.execute({ correo: this.email.value as string,  password: this.clave.value as string })
     .subscribe({
       next: (res: ResponseLoginModel) => {
         if(validateResponse(res)){
           this.userSesionService.dataStorage(res);
+          this.spinnerService.finalizarAnimacion();
           this.router.navigateByUrl('');;
-        } else {
-          alert(res.msg);
         }
       },
       error: (err: any) => {
+        this.spinnerService.finalizarAnimacion();
         console.log(err);
       }
     })

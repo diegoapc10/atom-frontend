@@ -7,8 +7,11 @@ import { DataModule } from 'src/data/data.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuLateralComponent } from './shared/menu-lateral/menu-lateral.component';
 import { InicioComponent } from './shared/inicio/inicio.component';
+import {MatButtonModule} from '@angular/material/button';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { InicioComponent } from './shared/inicio/inicio.component';
     BrowserModule,
     AppRoutingModule,
     DataModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

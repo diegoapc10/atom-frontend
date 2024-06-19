@@ -4,32 +4,32 @@
       <a routerLink="">
         <i class="fa-solid fa-circle-user"></i>
         <!-- {{usuario.rolNombre }} -->
-        Rol Usuario
+        <strong>{{ user.nombre }}</strong>
       </a>
     </div>
     <!-- Sidebar Navigation -->
     <ul class="sidebar-nav">
       <li class="sidebar-header">
         <!-- {{usuario.nombreCompleto}} -->
-        {{ user.nombre }}
+        <strong>Rol de usuario</strong>
       </li>
       <li class="sidebar-header">
-        <a role="button" (click)="logOut()">
+        <a role="button" class="btn btn-sm btn-outline-danger" (click)="logOut()">
           <i class="fa-solid fa-right-from-bracket"></i>
-          Salir
+          <strong>Salir</strong>
         </a>
       </li>
       <li class="sidebar-item">
         <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse" [attr.data-bs-target]="'#tareas'"
           aria-expanded="false" [attr.aria-controls]="'tareas'">
           <i class="task"></i>
-          Tareas
+          <strong>Tareas</strong>
         </a>
         <ul id="tareas" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
           <li class="sidebar-item">
             <a [routerLink]="'tareas'" class="sidebar-sub-link">
               <i class="task"></i>
-              Mantenimiento
+              <strong>Mantenimiento</strong>
             </a>
           </li>
         </ul>
